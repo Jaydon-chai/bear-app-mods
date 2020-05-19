@@ -9,10 +9,9 @@
 
 
 matches:
-
-# Bear Bidirectional Footer (Unlinked References)
-  - trigger: ":bf"
-    replace: "{{output}}[{{mydate}}]" 
+# Bear Bi-directional link
+  - trigger: ":blink"
+    replace: "---\n\n## Other References\nReferences to [{{clipboard}}](bear://x-callback-url/search?term=%22{{output}}%22)\n\n[{{mydate}}]" 
     vars:
       - name: clipboard
         type: clipboard
@@ -25,27 +24,4 @@ matches:
         params:
           args:
             - python
-            - /Users/YOURUSERNAME/Library/Preferences/espanso/script_replace-spaces.py
-
-
-  # Bear Bidirectional Daily Note 
-  # Add this to a brand new, blank Bear note.  It will add the date to the title and footer with Unlinked (soft) references.
-  - trigger: ":bd"
-    replace: "{{mydate}}\n---\n### Unlinked References\nReferences to [{{mydate}}](bear://x-callback-url/search?term=%22{{bb}}%20{{dd}}%2C%20{{yy}}%22)\n\n#.daily notes#"
-    vars:
-      - name: mydate
-        type: date
-        params:
-          format: "%b %d, %Y"
-      - name: bb
-        type: date
-        params:
-          format: "%b"
-      - name: dd
-        type: date
-        params:
-          format: "%d"
-      - name: yy
-        type: date
-        params:
-          format: "%Y"
+            - /Users/USERNAME/Library/Preferences/espanso/script_replace-spaces.py
