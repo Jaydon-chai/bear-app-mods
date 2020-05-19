@@ -1,4 +1,5 @@
-import subprocess
+from __future__ import print_function
+import subprocessimport subprocess
 
 # Gets the clipboard content
 def read_from_clipboard():
@@ -7,8 +8,7 @@ def read_from_clipboard():
 
 # Creates variable
 clipContent = read_from_clipboard()
-preContent = read_from_clipboard()
 
 replacedContent = clipContent.replace(" ", "%20")
 
-print("---\n### Linked References\n\n### Unlinked References\nReferences to ["+(preContent)+"](bear://x-callback-url/search?term=%22"+(replacedContent)+"%22)\n")
+print(replacedContent, end='')
